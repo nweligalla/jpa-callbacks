@@ -6,3 +6,10 @@ spring:
     url: jdbc:mysql://localhost:3306/jpa_life_cycle
     username: root
     password: My$qlP@sSS0001#
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
