@@ -2,15 +2,15 @@ package com.nweligalla.jpalifecycledemo.services;
 
 import java.util.List;
 
-import com.nweligalla.jpalifecycledemo.entities.Student;
+import com.nweligalla.jpalifecycledemo.dtos.StudentDTO;
 
 public interface StudentService {
 
-    Student save(Student student);    
+    StudentDTO save(StudentDTO student);    
     
-    Student getByID(long studentID);    
+    StudentDTO getByID(long studentID);    
     
-    List<Student> getAll();
+    List<StudentDTO> getAll();
 
 
 }

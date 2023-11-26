@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 
 @Entity
 public class Student {
@@ -25,6 +27,13 @@ public class Student {
     }
 
     public Student(String firstName, String lastName, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+    }
+
+    public Student(Long id, String firstName, String lastName, String email) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -55,8 +64,6 @@ public class Student {
         this.email = email;
     }
 
-    // getters
-
     public Long getId() {
         return id;
     }
@@ -67,6 +74,31 @@ public class Student {
 
     public LocalDateTime getAccountLastUpdatedTime() {
         return accountLastUpdatedTime;
+    }
+
+    public void setAccountCreatedTime(LocalDateTime accountCreatedTime) {
+        this.accountCreatedTime = accountCreatedTime;
+    }
+
+    public void setAccountLastUpdatedTime(LocalDateTime accountLastUpdatedTime) {
+        this.accountLastUpdatedTime = accountLastUpdatedTime;
+    }
+
+    @PrePersist
+    private void beforePersist() {
+
+        System.out.println("Im NEW");
+        LocalDateTime dateTime = LocalDateTime.now();
+
+        setAccountCreatedTime(dateTime);
+
+        setAccountLastUpdatedTime(dateTime);
+    }
+
+    @PreUpdate
+    private void beforeUpdate() {
+        System.out.println("Im Updating");
+        setAccountLastUpdatedTime(LocalDateTime.now());
     }
 
 }

@@ -1,5 +1,6 @@
 package com.nweligalla.jpalifecycledemo.api;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,8 +10,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nweligalla.jpalifecycledemo.dtos.StudentDTO;
 import com.nweligalla.jpalifecycledemo.entities.Student;
 import com.nweligalla.jpalifecycledemo.services.StudentService;
+
+import jakarta.persistence.PrePersist;
 
 @RestController
 @RequestMapping("/api")
@@ -23,7 +27,7 @@ public class StudentAPI {
     }
 
     @GetMapping("/get-all")
-    public List<Student> getAllStudents() {
+    public List<StudentDTO> getAllStudents() {
 
         System.out.println("Getting all Students");
 
@@ -31,13 +35,15 @@ public class StudentAPI {
     }
 
     @GetMapping("/get/{id}")
-    public Student getAllStudents(@PathVariable("id") long studentID) {
+    public StudentDTO getAllStudents(@PathVariable("id") long studentID) {
         return studentService.getByID(studentID);
     }
 
     @PostMapping("/save")
-    public Student saveStudent(@RequestBody Student student) {
+    public StudentDTO saveStudent(@RequestBody StudentDTO student) {
         return studentService.save(student);
     }
+
+    
 
 }
