@@ -6,6 +6,4 @@ import com.nweligalla.jpalifecycledemo.entities.Student;
 
 public interface StudentRepo extends JpaRepository<Student, Long> {
 
-
-    
 }
