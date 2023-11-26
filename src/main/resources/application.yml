@@ -1,1 +1,8 @@
+server:
+  port: 8081
 
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/jpa_life_cycle
+    username: root
+    password: My$qlP@sSS0001#
