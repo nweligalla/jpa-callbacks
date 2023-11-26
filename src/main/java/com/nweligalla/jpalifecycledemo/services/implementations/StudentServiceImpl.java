@@ -1,5 +1,7 @@
 package com.nweligalla.jpalifecycledemo.services.implementations;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.nweligalla.jpalifecycledemo.entities.Student;
@@ -23,6 +25,11 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public Student getByID(long studentID) {
         return studentRepo.findById(studentID).orElse(null);
+    }
+
+    @Override
+    public List<Student> getAll() {
+        return studentRepo.findAll();
     }
 
 }
