@@ -87,17 +87,15 @@ public class Student {
     @PrePersist
     private void beforePersist() {
 
-        System.out.println("Im NEW");
+        System.out.println("I\'m New");
         LocalDateTime dateTime = LocalDateTime.now();
-
         setAccountCreatedTime(dateTime);
-
         setAccountLastUpdatedTime(dateTime);
     }
 
     @PreUpdate
     private void beforeUpdate() {
-        System.out.println("Im Updating");
+        System.out.println("I\'m Updating");
         setAccountLastUpdatedTime(LocalDateTime.now());
     }
 
