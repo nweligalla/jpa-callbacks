@@ -25,8 +25,8 @@ public class StudentServiceImpl implements StudentService {
 
         Optional<Student> existingStudent = studentRepo.findById(studentDTO.getId());
 
-        System.out.println("____"+studentDTO.getId());        
-        System.out.println("++++"+existingStudent.isPresent());
+        // System.out.println("____"+studentDTO.getId());        
+        // System.out.println("++++"+existingStudent.isPresent());
 
 
         Student student;
