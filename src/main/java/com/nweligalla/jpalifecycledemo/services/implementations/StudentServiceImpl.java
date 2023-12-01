@@ -1,5 +1,6 @@
 package com.nweligalla.jpalifecycledemo.services.implementations;
 
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -68,6 +69,8 @@ public class StudentServiceImpl implements StudentService {
             student.setEmail(dto.getEmail());
         }
 
+        
+
         System.out.println();
 
         student.setAccountCreatedTime(student.getAccountCreatedTime());
@@ -79,7 +82,8 @@ public class StudentServiceImpl implements StudentService {
                 studentDTO.getId(),
                 studentDTO.getFirstName(),
                 studentDTO.getLastName(),
-                studentDTO.getEmail());
+                studentDTO.getEmail(),
+                studentDTO.getDob());
     }
 
     private StudentDTO convertToDTO(Student student) {
@@ -89,7 +93,10 @@ public class StudentServiceImpl implements StudentService {
                 student.getLastName(),
                 student.getEmail(),
                 student.getAccountCreatedTime(),
-                student.getAccountLastUpdatedTime());
+                student.getAccountLastUpdatedTime(),
+                student.getBirthDate().format(DateTimeFormatter.ISO_LOCAL_DATE),
+                student.getAge()
+                );
     }
 
 }
