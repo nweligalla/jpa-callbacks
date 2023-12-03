@@ -136,7 +136,7 @@ public class Student {
     @PrePersist
     private void beforePersist() {
 
-        System.out.println("I\'m New");
+        // System.out.println("I\'m New");
         LocalDateTime dateTime = LocalDateTime.now();
         setAccountCreatedTime(dateTime);
         setAccountLastUpdatedTime(dateTime);
@@ -144,7 +144,7 @@ public class Student {
 
     @PreUpdate
     private void beforeUpdate() {
-        System.out.println("I\'m Updating");
+        // System.out.println("I\'m Updating");
         setAccountLastUpdatedTime(LocalDateTime.now());
         createFullID();
     }
@@ -155,7 +155,7 @@ public class Student {
                 + getRandomString(3) + this.id
                 + getRandomString(4);
 
-        System.out.println(this.firstName.charAt(0));
+        // System.out.println(this.firstName.charAt(0));
         setFullId(fullID);
         afterLoad();
     }
@@ -180,7 +180,7 @@ public class Student {
 
     @PostLoad
     private void afterLoad() {
-        System.out.println("Running post Load");
+        // System.out.println("Running post Load");
         Period period = Period.between(this.birthDate, LocalDate.now());
         setAge(period.getYears());
     }

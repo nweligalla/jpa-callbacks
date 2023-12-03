@@ -26,9 +26,8 @@ public class StudentServiceImpl implements StudentService {
 
         Optional<Student> existingStudent = studentRepo.findById(studentDTO.getId());
 
-        // System.out.println("____"+studentDTO.getId());        
+        // System.out.println("____"+studentDTO.getId());
         // System.out.println("++++"+existingStudent.isPresent());
-
 
         Student student;
         if (existingStudent.isPresent()) {
@@ -69,8 +68,6 @@ public class StudentServiceImpl implements StudentService {
             student.setEmail(dto.getEmail());
         }
 
-        
-
         System.out.println();
 
         student.setAccountCreatedTime(student.getAccountCreatedTime());
@@ -95,8 +92,18 @@ public class StudentServiceImpl implements StudentService {
                 student.getAccountCreatedTime(),
                 student.getAccountLastUpdatedTime(),
                 student.getBirthDate().format(DateTimeFormatter.ISO_LOCAL_DATE),
-                student.getAge()
-                );
+                student.getAge());
+    }
+
+    @Override
+    public boolean deleteByID(long studentID) {
+
+        if (studentRepo.existsById(studentID)) {
+            studentRepo.deleteById(studentID);
+            return true;
+        }
+
+        return false;
     }
 
 }

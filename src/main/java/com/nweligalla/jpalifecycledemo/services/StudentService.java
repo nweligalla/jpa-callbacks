@@ -8,7 +8,9 @@ public interface StudentService {
 
     StudentDTO save(StudentDTO student);    
     
-    StudentDTO getByID(long studentID);    
+    StudentDTO getByID(long studentID);
+    
+    boolean deleteByID(long studentID );
     
     List<StudentDTO> getAll();
 
