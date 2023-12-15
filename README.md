@@ -1,6 +1,6 @@
 # JPA lifecycle callbacks.
 
-This repository accompanies the Medium article discussing Applying @PrePersist and @PreUpdate in JPA. Learn how to leverage `@PrePersist` and `@PreUpdate` annotations to inject custom logic at specific points in an entity's lifecycle.
+This repository accompanies the Medium article discussing Applying JPA lifecycle callbacks. Learn how to leverage with annotations to inject custom logic at specific points in an entity's lifecycle.
 
 Read 2 part medium article
 
